@@ -111,3 +111,25 @@ footer {
     font-size: 36px;
   }
 }
+
+#rules {
+  background-color: #0b0b0b;
+  padding: 80px 20px;
+}
+
+.rules-list {
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rules-list li {
+  background: #111;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  border-left: 4px solid #1f6fff;
+  border-radius: 6px;
+  line-height: 1.6;
+}
+
