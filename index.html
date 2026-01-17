@@ -81,45 +81,10 @@
   </ul>
 </section>
 
-<!-- LOGIN -->
-<section id="login">
-  <h2>Member Login</h2>
-  <p>Enter your username and password to access member-only content.</p>
-
-  <input type="text" id="username" placeholder="Username" />
-  <input type="password" id="password" placeholder="Password" />
-  <button onclick="checkLogin()">Login</button>
-  <p id="login-msg"></p>
-
-  <div id="member-content" style="display:none; margin-top:20px;">
-    <h3>Welcome, Member!</h3>
-    <p>This content is only visible to logged-in members.</p>
-  </div>
-</section>
-
 <footer>
   © <span id="year"></span> Core Historia. All rights reserved.
 </footer>
 
 <script src="script.js"></script>
-<script>
-function checkLogin() {
-  const user = document.getElementById('username').value;
-  const pass = document.getElementById('password').value;
-
-  // Hardcoded credentials (change these!)
-  const correctUser = 'Member';
-  const correctPass = 'Core123';
-
-  if(user === correctUser && pass === correctPass) {
-    document.getElementById('login-msg').textContent = 'Login successful!';
-    document.getElementById('member-content').style.display = 'block';
-  } else {
-    document.getElementById('login-msg').textContent = 'Invalid username or password!';
-    document.getElementById('member-content').style.display = 'none';
-  }
-}
-</script>
-
 </body>
 </html>
