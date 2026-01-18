@@ -347,3 +347,52 @@ footer {
   text-shadow: 0 0 30px #ff0000;
 }
 
+#announcements {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.section-note {
+  opacity: 0.7;
+  margin-bottom: 50px;
+  font-size: 0.95rem;
+}
+
+.announcement-box {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.announcement {
+  background: #0b0b0b;
+  border: 1px solid #111;
+  border-left: 4px solid #00ff9c;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: left;
+  transition: 0.25s ease;
+}
+
+.announcement:hover {
+  transform: translateY(-4px);
+}
+
+.announcement h3 {
+  margin: 8px 0 10px;
+  font-size: 1.15rem;
+}
+
+.announcement p {
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.announcement .date {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+
