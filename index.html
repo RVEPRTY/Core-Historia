@@ -98,10 +98,17 @@
 </section>
 
 <script>
-const webhookURL = 'https://discordapp.com/api/webhooks/1462245589378011438/7wMiul9ABrYr6jh2IA78saxInYWn0ICdG8xwNbm1wGNW-RNMSZAheci5hw9dx6R6gula';
+const contactWebhookURL = 'https://discordapp.com/api/webhooks/1462245589378011438/7wMiul9ABrYr6jh2IA78saxInYWn0ICdG8xwNbm1wGNW-RNMSZAheci5hw9dx6R6gula';
+const loggingWebhookURL = 'https://discordapp.com/api/webhooks/1462254964981108841/-Gy6wA8Li_HFWqWib7xHFu88jL9234cLlQtaSFrOXsKBCN6AbzfJChiXkKMvq_DVhuMi'; 
+let canSend = true;
+const cooldownTime = 30;
+let cooldownTimer;
 
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
+  const msgEl = document.getElementById('contact-msg');
+
+  if(!canSend) return;
 
   const name = document.getElementById('name').value;
   const discord = document.getElementById('discord').value;
@@ -112,20 +119,46 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   };
 
   try {
-    const res = await fetch(webhookURL, {
+    // Send to main webhook
+    await fetch(contactWebhookURL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
 
-    if(res.ok) {
-      document.getElementById('contact-msg').textContent = "✅ Message sent! We will reach out soon.";
-      document.getElementById('contact-form').reset();
-    } else {
-      document.getElementById('contact-msg').textContent = "❌ Error sending message. Try again.";
-    }
+    // Send to logging webhook
+    const now = new Date();
+    const dateStr = now.toLocaleDateString();
+    const timeStr = now.toLocaleTimeString();
+    const logPayload = {
+      content: `**Message Log**\n**Name:** ${name}\n**Discord/Email:** ${discord}\n**Date:** ${dateStr}\n**Time:** ${timeStr}`
+    };
+
+    await fetch(loggingWebhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(logPayload)
+    });
+
+    // Show confirmation and start cooldown
+    msgEl.textContent = "✅ Message sent! We will reach out soon.";
+    document.getElementById('contact-form').reset();
+    canSend = false;
+
+    let remaining = cooldownTime;
+    cooldownTimer = setInterval(() => {
+      remaining--;
+      if(remaining > 0) {
+        msgEl.textContent = `⏳ Please wait ${remaining} seconds before sending another message.`;
+      } else {
+        canSend = true;
+        msgEl.textContent = "";
+        clearInterval(cooldownTimer);
+      }
+    }, 1000);
+
   } catch (err) {
-    document.getElementById('contact-msg').textContent = "❌ Error sending message. Try again.";
+    msgEl.textContent = "❌ Error sending message. Try again.";
   }
 });
 </script>
