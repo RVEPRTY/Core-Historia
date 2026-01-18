@@ -58,6 +58,7 @@ nav ul li a:hover {
 }
 
 section {
+  padding: 120px 10% 120px 10%;
   scroll-margin-top: 90px;
 }
 
