@@ -133,3 +133,11 @@ footer {
   line-height: 1.6;
 }
 
+
+.section {
+  min-height: 100vh; /* Make each section at least full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  padding: 60px 20px; /* Adjust top/bottom spacing */
+}
