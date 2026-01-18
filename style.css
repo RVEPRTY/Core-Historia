@@ -410,6 +410,7 @@ footer {
 
 
 
+
 #loader {
   position: fixed;
   top: 0;
@@ -422,12 +423,25 @@ footer {
   justify-content: center;
   z-index: 9999;
   transition: opacity 0.5s ease;
+  flex-direction: column;
+}
+
+.loader-content {
+  text-align: center;
 }
 
 .loader-logo {
   width: 150px;
   height: auto;
   animation: pulse 1.5s infinite;
+}
+
+.loader-text {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
 }
 
 
