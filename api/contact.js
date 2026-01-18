@@ -34,13 +34,13 @@ export default async function handler(req, res) {
   };
 
   try {
-    await fetch(process.env.DISCORD_WEBHOOK_MAIN, {
+    await fetch(process.env.https://discordapp.com/api/webhooks/1462245589378011438/7wMiul9ABrYr6jh2IA78saxInYWn0ICdG8xwNbm1wGNW-RNMSZAheci5hw9dx6R6gula, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(mainPayload)
     });
 
-    await fetch(process.env.DISCORD_WEBHOOK_LOGS, {
+    await fetch(process.env.https://discordapp.com/api/webhooks/1462254964981108841/-Gy6wA8Li_HFWqWib7xHFu88jL9234cLlQtaSFrOXsKBCN6AbzfJChiXkKMvq_DVhuMi, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(logPayload)
