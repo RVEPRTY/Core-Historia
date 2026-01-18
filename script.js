@@ -17,7 +17,19 @@ function updateClock() {
   clockElement.textContent = `${dateStr} | ${timeStr}`;
 }
 
-// Update every second
+
 setInterval(updateClock, 1000);
 updateClock(); // initial call
 
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  setTimeout(() => {
+    document.body.classList.add("loaded");
+   
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    }, 500);
+  }, 500); 
+});
