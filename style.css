@@ -226,3 +226,124 @@ footer {
   font-weight: bold;
   margin-left: auto; /* pushes it to the far right */
 }
+
+
+
+
+#members {
+  padding: 100px 10%;
+  background: #000;
+  text-align: center;
+}
+
+.members-note {
+  opacity: 0.7;
+  margin-bottom: 50px;
+  font-size: 0.95rem;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.member-card {
+  background: #0b0b0b;
+  border-radius: 14px;
+  padding: 30px;
+  transition: 0.3s ease;
+  border: 1px solid #111;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+}
+
+.member-card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #222;
+}
+
+.member-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.member-card .desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+
+.membr .rank {
+  color: #bbbbbb;
+}
+
+/* OPERATIVE */
+.oprt .rank {
+  color: #00b7ff;
+  text-shadow: 0 0 10px #00b7ff;
+}
+
+
+.elite .rank {
+  color: #00ffe1;
+  text-shadow: 0 0 12px #00ffe1;
+}
+
+
+.comn .rank {
+  color: #ff9f00;
+  text-shadow: 0 0 12px #ff9f00;
+}
+
+
+.highcomn .rank {
+  color: #ff3b3b;
+  text-shadow: 0 0 15px #ff3b3b;
+}
+
+
+.nu1 .rank {
+  color: #b266ff;
+  text-shadow: 0 0 12px #b266ff;
+}
+
+.nu2 .rank {
+  color: #a07cff;
+  text-shadow: 0 0 10px #a07cff;
+}
+
+.nu3 .rank {
+  color: #7a6cff;
+  text-shadow: 0 0 8px #7a6cff;
+}
+
+
+.gamma .rank {
+  color: #00ff9c;
+  text-shadow: 0 0 18px #00ff9c;
+}
+
+.alpha .rank {
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffd700;
+}
+
+.eta .rank {
+  color: #ff00ff;
+  text-shadow: 0 0 25px #ff00ff;
+}
+
+
+.founder .rank {
+  color: #ff0000;
+  text-shadow: 0 0 30px #ff0000;
+}
+
