@@ -226,3 +226,37 @@ footer {
   }
 }
 
+/* Navbar clock */
+.nav-clock {
+  color: #0d6efd;  /* matches your button highlight */
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-left: auto;  /* pushes it to the right */
+}
+
+/* Make sure navbar items align */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #000;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: #0d6efd;
+}
+
+
