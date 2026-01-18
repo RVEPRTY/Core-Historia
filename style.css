@@ -58,8 +58,7 @@ nav ul li a:hover {
 }
 
 section {
-  min-height: 100vh;
-  padding: 120px 10% 80px;
+  scroll-margin-top: 90px;
 }
 
 h1 {
