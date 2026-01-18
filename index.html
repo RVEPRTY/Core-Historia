@@ -80,21 +80,54 @@
   </ul>
 </section>
 
- <section id="contact" class="section contact-section">
+<section id="contact" class="section contact-section">
   <div class="contact-container">
     <div class="contact-text">
       <h2>Contact Us</h2>
-      <p>If you have questions or want to get involved, reach out to us! We’ll respond as soon as possible.</p>
+      <p>If you have questions or want to get involved, reach out to us! Messages go directly to our team.</p>
     </div>
     <form id="contact-form" class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="text" placeholder="Your Discord/Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="discord" placeholder="Your Discord/Email" required>
+      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
       <button type="submit">Send Message</button>
     </form>
     <p id="contact-msg" class="contact-msg"></p>
   </div>
 </section>
+
+<script>
+const webhookURL = 'https://discordapp.com/api/webhooks/1462245589378011438/7wMiul9ABrYr6jh2IA78saxInYWn0ICdG8xwNbm1wGNW-RNMSZAheci5hw9dx6R6gula';
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const discord = document.getElementById('discord').value;
+  const message = document.getElementById('message').value;
+
+  const payload = {
+    content: `**New Contact Message**\n**Name:** ${name}\n**Discord/Email:** ${discord}\n**Message:** ${message}`
+  };
+
+  try {
+    const res = await fetch(webhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if(res.ok) {
+      document.getElementById('contact-msg').textContent = "✅ Message sent! We will reach out soon.";
+      document.getElementById('contact-form').reset();
+    } else {
+      document.getElementById('contact-msg').textContent = "❌ Error sending message. Try again.";
+    }
+  } catch (err) {
+    document.getElementById('contact-msg').textContent = "❌ Error sending message. Try again.";
+  }
+});
+</script>
 
 
 
