@@ -100,8 +100,15 @@
 </section>
 
 <script>
-const contactWebhookURL = 'https://discordapp.com/api/webhooks/1462245589378011438/7wMiul9ABrYr6jh2IA78saxInYWn0ICdG8xwNbm1wGNW-RNMSZAheci5hw9dx6R6gula';
-const loggingWebhookURL = 'https://discordapp.com/api/webhooks/1462254964981108841/-Gy6wA8Li_HFWqWib7xHFu88jL9234cLlQtaSFrOXsKBCN6AbzfJChiXkKMvq_DVhuMi'; 
+await fetch("/api/contact", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name,
+    discord,
+    message
+  })
+}); 
 let canSend = true;
 const cooldownTime = 30;
 let cooldownTimer;
