@@ -1,4 +1,4 @@
-const SITE_ONLINE = true; 
+const SITE_ONLINE = false; 
 
 if (!SITE_ONLINE) {
   document.body.innerHTML = `
