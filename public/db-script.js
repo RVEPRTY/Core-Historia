@@ -1,40 +1,39 @@
 const cases = [
   {
     id: "CH-001",
-    title: "Online Scam Network",
-    status: "Active Investigation",
-    description: "Investigation into a coordinated crypto scam group operating across multiple platforms."
+    title: "Scam Network",
+    status: "Active",
+    description: "Investigation into coordinated online scam operations."
   },
   {
     id: "CH-002",
     title: "Doxxing Incident",
     status: "Closed",
-    description: "Case involving targeted harassment and release of private information."
+    description: "Targeted harassment and exposure of private data."
   },
   {
     id: "CH-003",
-    title: "Impersonation Ring",
+    title: "Impersonation Accounts",
     status: "Monitoring",
-    description: "Accounts impersonating staff members across Discord and Telegram."
+    description: "Fake staff accounts identified."
   },
   {
     id: "CH-004",
-    title: "Malicious Link Campaign",
+    title: "Malware Campaign",
     status: "Active",
-    description: "Tracking malware links disguised as media downloads."
+    description: "Malicious downloads spread via shortened links."
   },
   {
     id: "CH-005",
-    title: "Data Breach Report",
-    status: "Under Review",
-    description: "Analysis of alleged leaked databases circulating online."
+    title: "Data Breach Archive",
+    status: "Review",
+    description: "Leaked datasets under verification."
   }
 ];
 
-const container = document.getElementById("caseContainer");
 const searchInput = document.getElementById("searchInput");
+const container = document.getElementById("caseContainer");
 
-// popup
 const popup = document.getElementById("popup");
 const popupTitle = document.getElementById("popupTitle");
 const popupID = document.getElementById("popupID");
@@ -42,18 +41,26 @@ const popupStatus = document.getElementById("popupStatus");
 const popupDesc = document.getElementById("popupDesc");
 const closePopup = document.getElementById("closePopup");
 
-// render cards
-function renderCases(filteredCases = []) {
+searchInput.addEventListener("input", () => {
+  const value = searchInput.value.toLowerCase();
+
   container.innerHTML = "";
 
-  filteredCases.forEach(c => {
+  if (!value) return;
+
+  const results = cases.filter(c =>
+    c.id.toLowerCase().includes(value) ||
+    c.title.toLowerCase().includes(value)
+  );
+
+  results.forEach(c => {
     const card = document.createElement("div");
     card.className = "case-card";
 
     card.innerHTML = `
-      <div class="case-id">${c.id}</div>
-      <div class="case-title">${c.title}</div>
-      <div class="case-status">${c.status}</div>
+      <h3>${c.id}</h3>
+      <p>${c.title}</p>
+      <span>${c.status}</span>
     `;
 
     card.onclick = () => {
@@ -66,26 +73,8 @@ function renderCases(filteredCases = []) {
 
     container.appendChild(card);
   });
-}
-
-// SEARCH
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase().trim();
-
-  if (!query) {
-    container.innerHTML = "";
-    return;
-  }
-
-  const results = cases.filter(c =>
-    c.id.toLowerCase().includes(query) ||
-    c.title.toLowerCase().includes(query)
-  );
-
-  renderCases(results);
 });
 
-// close popup
 closePopup.onclick = () => {
   popup.classList.add("hidden");
 };
