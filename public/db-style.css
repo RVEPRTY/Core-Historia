@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+  }
+
+body {
+background: #0b0f16;
+color: white;
+}
+
+header {
+padding: 30px;
+text-align: center;
+}
+
+header h1 {
+margin-bottom: 20px;
+letter-spacing: 2px;
+}
+
+header input {
+width: 60%;
+max-width: 500px;
+padding: 14px;
+border-radius: 10px;
+border: none;
+outline: none;
+font-size: 16px;
+}
+
+main {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 25px;
+padding: 40px;
+}
+
+.case-card {
+background: #121a29;
+padding: 20px;
+border-radius: 14px;
+cursor: pointer;
+transition: 0.25s;
+display: none;
+border: 1px solid #1f2a44;
+}
+
+.case-card:hover {
+transform: scale(1.03);
+box-shadow: 0 0 15px #3b82f6;
+}
+
+.case-id {
+color: #60a5fa;
+font-size: 14px;
+}
+
+.case-title {
+font-size: 18px;
+margin: 10px 0;
+}
+
+.case-status {
+font-size: 14px;
+opacity: 0.8;
+}
+
+/* POPUP */
+
+.popup {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.7);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.popup-box {
+background: #0f172a;
+padding: 30px;
+border-radius: 18px;
+width: 90%;
+max-width: 500px;
+position: relative;
+animation: fade 0.25s ease;
+}
+
+.popup-box h2 {
+margin-bottom: 10px;
+}
+
+.popup-box p {
+margin-top: 8px;
+line-height: 1.5;
+}
+
+#closePopup {
+position: absolute;
+top: 15px;
+right: 20px;
+cursor: pointer;
+font-size: 20px;
+}
+
+.hidden {
+display: none;
+}
+
+@keyframes fade {
+from { transform: scale(0.9); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
