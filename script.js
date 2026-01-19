@@ -1,3 +1,31 @@
+const SITE_ONLINE = false; 
+
+if (!SITE_ONLINE) {
+  document.body.innerHTML = `
+    <div style="
+      background:#000;
+      color:#fff;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      font-family:Arial;
+      padding:40px;
+    ">
+      <h1 style="font-size:42px; margin-bottom:20px;">
+        The Website’s Status is Currently Down
+      </h1>
+
+      <p style="font-size:18px; opacity:0.8;">
+        DM <strong>rveprty.</strong> to bring the website back up
+      </p>
+    </div>
+  `;
+}
+
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 document.getElementById('contact-form').addEventListener('submit', function(e) {
