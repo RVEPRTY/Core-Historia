@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Core Historia Database</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Core Historia Database</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="db-style.css">
+<link rel="stylesheet" href="db-style.css">
 </head>
 <body>
 
-<header>
-  <h1>Core Historia Database</h1>
-  <input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Search Case ID or Title..."
-  >
-</header>
+<h1>Core Historia Database</h1>
 
-<main id="caseContainer">
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search Case ID or Title..."
+>
 
-</main>
+<div id="caseContainer"></div>
 
-
+<!-- POPUP -->
 <div id="popup" class="popup hidden">
   <div class="popup-box">
-    <span id="closePopup">✕</span>
+    <span id="closePopup">✖</span>
+
     <h2 id="popupTitle"></h2>
     <p><strong>Case ID:</strong> <span id="popupID"></span></p>
     <p><strong>Status:</strong> <span id="popupStatus"></span></p>
@@ -35,6 +32,5 @@
 </div>
 
 <script src="db-script.js"></script>
-
 </body>
 </html>
