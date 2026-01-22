@@ -93,15 +93,47 @@
   <div class="contact-container">
     <div class="contact-text">
       <h2>Contact Us</h2>
-      <p>If you have questions or want to get involved, reach out to us! Messages go directly to our team.</p>
+      <p>
+        If you have questions or want to get involved, reach out to us.
+        Messages go directly to our team.
+      </p>
     </div>
-    <form id="contact-form" class="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="text" id="discord" placeholder="Your Discord/Email" required>
-      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+
+    <form id="contactForm" class="contact-form">
+      <input
+        type="text"
+        id="name"
+        placeholder="Your Name (optional)"
+      >
+
+      <input
+        type="text"
+        id="discord"
+        placeholder="Your Discord/Email (optional)"
+      >
+
+      <textarea
+        id="message"
+        placeholder="Your Message"
+        rows="5"
+        required
+      ></textarea>
+
+      <!-- CAPTCHA -->
+      <div class="captcha">
+        <span id="captcha-question"></span>
+        <input
+          type="number"
+          id="captcha-answer"
+          placeholder="Answer"
+          required
+        >
+      </div>
+
       <button type="submit">Send Message</button>
     </form>
-    <p id="contact-msg" class="contact-msg"></p>
+
+    <p id="contact-status" class="contact-msg"></p>
   </div>
 </section>
 
