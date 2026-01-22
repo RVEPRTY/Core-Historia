@@ -81,7 +81,7 @@ sections.forEach(section => {
 
 const codingClass = {
   topic: "Introduction to Programming",
-  date: "2026-02-02",          // YYYY-MM-DD
+  date: "2026-01-28",          // YYYY-MM-DD
   time: "18:00",               // 24h HH:MM
   timezone: "America/New_York" // your timezone
 };
