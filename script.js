@@ -145,3 +145,67 @@ function updateSchedule() {
 updateSchedule();
 setInterval(updateSchedule, 60000);
 
+
+// Captcha and Contact Form
+
+// Gens captcha
+let captchaA = Math.floor(Math.random() * 10) + 1;
+let captchaB = Math.floor(Math.random() * 10) + 1;
+
+function refreshCaptcha() {
+  captchaA = Math.floor(Math.random() * 10) + 1;
+  captchaB = Math.floor(Math.random() * 10) + 1;
+
+  const q = document.getElementById("captcha-question");
+  if (q) q.textContent = `What is ${captchaA} + ${captchaB}?`;
+}
+
+
+refreshCaptcha();
+
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const discord = document.getElementById("discord").value;
+    const message = document.getElementById("message").value;
+    const captcha = document.getElementById("captcha-answer").value;
+    const status = document.getElementById("contact-status");
+
+    status.textContent = "Sending...";
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          discord,
+          message,
+          captcha,
+          captchaExpected: captchaA + captchaB
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        status.textContent = "Message sent successfully.";
+        contactForm.reset();
+        refreshCaptcha();
+      } else {
+        status.textContent = data.error || "Failed to send message.";
+        refreshCaptcha();
+      }
+    } catch (err) {
+      status.textContent = "Server error. Please try again later.";
+      refreshCaptcha();
+    }
+  });
+}
+
+
