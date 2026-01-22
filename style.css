@@ -479,3 +479,70 @@ section.visible {
   transform: translateY(0);
 }
 
+
+
+#coding-schedule {
+  text-align: center;
+}
+
+.schedule-card {
+  margin: 40px auto 0;
+  padding: 30px;
+  max-width: 540px;
+  background: #0b0b0b;
+  border: 1px solid #111;
+  border-radius: 14px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.next-class {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.live {
+  color: #ff4444;
+  font-weight: bold;
+  animation: pulse 1.2s infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.schedule-card h3 {
+  color: #00ff9c;
+  margin: 15px 0;
+}
+
+.schedule-info {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.countdown {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.schedule-note {
+  margin-top: 20px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+
