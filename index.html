@@ -150,34 +150,28 @@ i like to make stuff
   </div>
 </section>
 
-  <section id="coding-schedule">
-  <h2>Coding Class Schedule</h2>
+  <section id="coding-class" class="section">
+  <h2>Coding Classes</h2>
 
-  <div class="schedule-card">
+  <div class="class-card">
+    <h3>Lesson 1 — Web Basics</h3>
 
-    <div class="schedule-header">
-      <span id="live-indicator" class="live hidden">🔴 LIVE</span>
-      <span class="next-class">NEXT CLASS</span>
-    </div>
+    <p id="class-time" class="class-time"></p>
 
-    <h3 id="class-topic">Loading…</h3>
+    <p id="class-status" class="class-status"></p>
 
-    <p class="schedule-info">
-      📅 <span id="class-date"></span><br>
-      ⏰ <span id="class-time"></span>
-    </p>
-
-    <div class="countdown">
-      ⏳ Starts in <span id="countdown-timer">--</span>
-    </div>
-
-    <p class="schedule-note">
-      Hosted live in the Core Historia Discord Stage channel.
-    </p>
-
+    <a
+      id="stage-link"
+      href="https://discord.com/channels/1388308607988269237/1415491347611385946"
+      target="_blank"
+      class="stage-link"
+      style="display: none;"
+    >
+      Join Live Stage
+    </a>
   </div>
 </section>
-
+  
   <script>
 
 window.addEventListener("load", () => {
