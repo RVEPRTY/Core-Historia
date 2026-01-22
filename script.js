@@ -1,11 +1,3 @@
-
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loading-screen");
-  if (loader) {
-    loader.style.display = "none";
-  }
-});
-
 const SITE_ONLINE = true; 
 
 if (!SITE_ONLINE) {
