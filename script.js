@@ -79,3 +79,69 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
+const codingClass = {
+  topic: "Introduction to Programming",
+  date: "2026-02-02",          // YYYY-MM-DD
+  time: "18:00",               // 24h HH:MM
+  timezone: "America/New_York" // your timezone
+};
+
+
+function getClassDate() {
+  const raw = `${codingClass.date}T${codingClass.time}:00`;
+
+  return new Date(
+    new Date(raw).toLocaleString("en-US", {
+      timeZone: codingClass.timezone
+    })
+  );
+}
+
+function updateSchedule() {
+  const now = new Date();
+  const classDate = getClassDate();
+
+  document.getElementById("class-topic").textContent =
+    codingClass.topic;
+
+  document.getElementById("class-date").textContent =
+    classDate.toLocaleDateString(undefined, {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+
+  document.getElementById("class-time").textContent =
+    classDate.toLocaleTimeString(undefined, {
+      hour: "numeric",
+      minute: "2-digit",
+      timeZoneName: "short"
+    });
+
+  const diff = classDate - now;
+  const liveIndicator = document.getElementById("live-indicator");
+  const countdown = document.getElementById("countdown-timer");
+
+  if (diff <= 0 && diff > -3600000) {
+    // LIVE for 1 hour
+    liveIndicator.classList.remove("hidden");
+    countdown.textContent = "LIVE NOW";
+  } else if (diff > 0) {
+    liveIndicator.classList.add("hidden");
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    countdown.textContent =
+      `${days}d ${hours}h ${minutes}m`;
+  } else {
+    liveIndicator.classList.add("hidden");
+    countdown.textContent = "Completed";
+  }
+}
+
+updateSchedule();
+setInterval(updateSchedule, 60000);
+
