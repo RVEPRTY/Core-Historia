@@ -471,3 +471,14 @@ section.visible {
   50% { opacity: 0.4; }
   100% { opacity: 1; }
 }
+
+  #tetris-trigger {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 2px;
+  height: 2px;
+  cursor: pointer;
+  z-index: 999999;
+}
+
