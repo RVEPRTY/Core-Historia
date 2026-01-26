@@ -208,3 +208,6 @@ if (contactForm) {
   });
 }
 
+document.getElementById("tetris-trigger")?.addEventListener("click", () => {
+  window.location.href = "/tetris.html";
+});
